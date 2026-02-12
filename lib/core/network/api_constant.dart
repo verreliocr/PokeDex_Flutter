@@ -9,8 +9,8 @@ class ApiConstant {
   static const String pokemonDetail = 'pokemon/{name}';
 
   //Images
-  static const String pokemonSprites = 'pokemon/{id}.png'
-  static const String pokemonArtwork = 'pokemon/other/official-artwork/{id}.png'
-  static const String pokemonGif = 'pokemon/other/showdown/{id}.gif'
-  static const String items = 'item/{id}.png'
+  static const String pokemonSprites = 'pokemon/{id}.png';
+  static const String pokemonArtwork = 'pokemon/other/official-artwork/{id}.png';
+  static const String pokemonGif = 'pokemon/other/showdown/{id}.gif';
+  static const String items = 'item/{id}.png';
 }

@@ -16,7 +16,7 @@ class ApiClient {
       }
     )
   ) {
-    dio.interceptors.add(LogInterceptor(responseBody: true, requestBody: true))
+    dio.interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
   }
 
   //GET
@@ -25,7 +25,7 @@ class ApiClient {
       final response = await dio.get(endpoint, queryParameters: queryParams);
       return response;
     } on DioException catch (e) {
-      throw Exception(ErrorMapper().handle(e))
+      throw Exception(ErrorMapper().handle(e));
     }
   }
 }
