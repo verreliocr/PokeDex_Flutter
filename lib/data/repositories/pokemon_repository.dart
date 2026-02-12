@@ -11,7 +11,7 @@ class PokemonRepository {
   });
 
   //Get Pokemon List
-  Future<PokemonList> getPokemonList(int limit, int offset) async {
+  Future<List<PokemonListItem>> getPokemonList(int limit, int offset) async {
     try {
       final response = await apiClient.get(
         ApiConstant.pokemonList,
@@ -21,7 +21,9 @@ class PokemonRepository {
         }
       );
 
-      return PokemonList.fromJson(response.data);
+      final pokeList = PokemonList.fromJson(response.data);
+
+      return pokeList.results;
     } catch {
       throw Exception('Failed to get pokemons data: $e');
     }
