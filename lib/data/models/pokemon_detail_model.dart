@@ -3,14 +3,14 @@ class PokemonDetail {
   final String name;
 
   PokemonDetail({
-    this.id,
-    this.name
+    required this.id,
+    required this.name
   });
 
   factory PokemonDetail.fromJson(Map<String, dynamic> json) {
     return PokemonDetail(
         id: json['id'],
-        results: json['name']
+        name: json['name']
     );
   }
 
@@ -18,6 +18,6 @@ class PokemonDetail {
     return {
       'id': id,
       'name': name
-    }
+    };
   }
 }

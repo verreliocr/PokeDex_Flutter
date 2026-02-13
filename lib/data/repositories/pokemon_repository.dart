@@ -24,8 +24,8 @@ class PokemonRepository {
       final pokeList = PokemonList.fromJson(response.data);
 
       return pokeList.results;
-    } catch {
-      throw Exception('Failed to get pokemons data: $e');
+    } catch (e) {
+      throw Exception('Failed to get Pokemon data: $e');
     }
   }
 
@@ -37,8 +37,8 @@ class PokemonRepository {
       );
 
       return PokemonDetail.fromJson(response.data);
-    } catch {
-      throw Exception('Failed to get pokemon data: $e');
+    } catch (e) {
+      throw Exception('Failed to get Pokemon data: $e');
     }
   }
 }

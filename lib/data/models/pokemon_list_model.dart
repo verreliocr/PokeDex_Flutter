@@ -4,14 +4,16 @@ class PokemonList {
   final List<PokemonListItem> results;
 
   PokemonList({
-    this.count,
-    this.results
+    required this.count,
+    required this.results
   });
 
   factory PokemonList.fromJson(Map<String, dynamic> json) {
     return PokemonList(
       count: json['count'],
-      results: json['results']
+      results: (json['results'] as List<dynamic>)
+          .map((e) => PokemonListItem.fromJson(e))
+          .toList()
     );
   }
 
@@ -19,7 +21,7 @@ class PokemonList {
     return {
       'count': count,
       'results': results
-    }
+    };
   }
 }
 
@@ -28,8 +30,8 @@ class PokemonListItem {
   final String url;
 
   PokemonListItem({
-    this.name,
-    this.url
+    required this.name,
+    required this.url
   });
 
   factory PokemonListItem.fromJson(Map<String, dynamic> json) {
