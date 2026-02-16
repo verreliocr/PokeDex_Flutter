@@ -34,12 +34,6 @@ class PokemonDetailBody extends StatelessWidget {
               errorBuilder: (_, _, _) => const Icon(Icons.error),
             ),
             const SizedBox(height: 16),
-            Text(
-              viewModel.pokemonName,
-              style: Theme.of(context).textTheme.headlineMedium,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               spacing: 8,
