@@ -1,16 +1,19 @@
-# pokedex_flutter
+## Architecture
+- MVVM
+- Clean separation (Feature-based structure)
+- Provider for state management
 
-A PokeDex Apps created using Flutter
+## Features
+- Pokemon list with pagination
+- Detail screen with image and types
+- Error handling
+- Loading states
 
-## Getting Started
+## Tech Stack
+- Flutter
+- Provider
+- Clean Architecture pattern
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## How to Run
+flutter pub get
+flutter run
