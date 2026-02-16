@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/core/network/api_client.dart';
+import 'package:pokedex_flutter/core/utils/string_ext.dart';
 import 'package:pokedex_flutter/data/repositories/pokemon_repository.dart';
 import 'package:pokedex_flutter/domain/use_cases/get_pokemon_detail_uc.dart';
 import 'package:pokedex_flutter/presentation/screens/pokemon_detail/pokemon_detail_body.dart';
@@ -24,7 +25,7 @@ class PokemonDetailScreen extends StatelessWidget {
       )..fetchPokeDetailData(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(name),
+          title: Text(name.formatPokemonName()),
         ),
         body: PokemonDetailBody(),
       ),

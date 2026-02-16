@@ -24,7 +24,7 @@ class _PokemonListBodyState extends State<PokemonListBody> {
 
     scrollController = ScrollController();
 
-    Future.microtask(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<PokemonViewModel>().fetchPokeListData();
     });
 
