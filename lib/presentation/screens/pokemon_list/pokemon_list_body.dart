@@ -16,14 +16,29 @@ class PokemonListBody extends StatefulWidget {
 }
 
 class _PokemonListBodyState extends State<PokemonListBody> {
-  
+  late ScrollController scrollController;
+
   @override
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    scrollController = ScrollController();
+
+    Future.microtask(() {
       context.read<PokemonViewModel>().fetchPokeListData();
     });
+
+    scrollController.addListener(() {
+      if (scrollController.position.pixels >= scrollController.position.maxScrollExtent - 200) {
+        context.read<PokemonViewModel>().fetchPokeListData();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -35,14 +50,23 @@ class _PokemonListBodyState extends State<PokemonListBody> {
     }
 
     return ListView.builder(
-        itemCount: viewModel.pokeList.length,
+        controller: scrollController,
+        itemCount: viewModel.pokeList.length + (viewModel.hasMore ? 1 : 0),
         itemBuilder: (context, index) {
-          final pokemon = viewModel.pokeList[index];
+          if (index < viewModel.pokeList.length) {
+            final pokemon = viewModel.pokeList[index];
 
-          return PokemonListCard(
-              pokemon: pokemon,
-              onTap: () => widget.onItemTap(pokemon.name)
-          );
+            return PokemonListCard(
+                pokemon: pokemon,
+                onTap: () => widget.onItemTap(pokemon.name)
+            );
+          } else {
+            return const Padding(
+              padding: EdgeInsets.all(16),
+              child: Center(child: CircularProgressIndicator())
+            );
+          }
+
         });
   }
 }
