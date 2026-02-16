@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:pokedex_flutter/data/models/pokemon_list_model.dart';
+import 'package:pokedex_flutter/core/utils/string_ext.dart';
 import 'package:pokedex_flutter/domain/use_cases/get_pokemon_list_uc.dart';
 
 class PokemonViewModel extends ChangeNotifier {
@@ -45,5 +46,9 @@ class PokemonViewModel extends ChangeNotifier {
       isLoading = false;
       notifyListeners();
     }
+  }
+
+  List<String> get pokemonNames {
+    return pokeList.map((pokemon) => pokemon.name.formatPokemonName()).toList();
   }
 }

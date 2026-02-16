@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'api_constant.dart';
+import 'package:pokedex_flutter/core/config/env_config.dart';
 import 'error_mapper.dart';
 
 class ApiClient {
@@ -8,7 +8,7 @@ class ApiClient {
   ApiClient()
     : dio = Dio(
     BaseOptions(
-      baseUrl: ApiConstant.baseUrl,
+      baseUrl: EnvConfig.baseApiUrl,
       connectTimeout: const Duration(seconds: 60),
       receiveTimeout: const Duration(seconds: 60),
       headers: {

@@ -54,11 +54,12 @@ class _PokemonListBodyState extends State<PokemonListBody> {
         itemCount: viewModel.pokeList.length + (viewModel.hasMore ? 1 : 0),
         itemBuilder: (context, index) {
           if (index < viewModel.pokeList.length) {
-            final pokemon = viewModel.pokeList[index];
+            final pokemonId = viewModel.pokeList[index].name;
+            final displayName = viewModel.pokemonNames[index];
 
             return PokemonListCard(
-                pokemon: pokemon,
-                onTap: () => widget.onItemTap(pokemon.name)
+                name: displayName,
+                onTap: () => widget.onItemTap(pokemonId)
             );
           } else {
             return const Padding(

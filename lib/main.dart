@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'presentation/screens/pokemon_detail/pokemon_detail_screen.dart';
 import 'presentation/screens/pokemon_list/pokemon_list_screen.dart';
 
 void main() async {
